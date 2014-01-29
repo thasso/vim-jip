@@ -45,6 +45,8 @@ syntax include @SHELL syntax/sh.vim syntax/sh/*.vim
 unlet b:current_syntax
 syntax include @R syntax/r.vim syntax/r/*.vim
 unlet b:current_syntax
+syntax include @OCAML syntax/ocaml.vim syntax/ocaml/*.vim
+unlet b:current_syntax
 
 " match general marker
 syntax region JipBlock matchgroup=JipInvalid start="^#%begin.*$" end="^#%end.*$"
@@ -60,6 +62,8 @@ syntax region JipCommand matchgroup=Jip start="^#%begin\s\+command$" end="^#%end
 syntax region JipCommandPython matchgroup=Jip start="^#%begin\s\+command\s\+python.*$" end="^#%end.*$" contains=@PYTHON
 " match Rscript command
 syntax region JipCommandR matchgroup=Jip start="^#%begin\s\+command\s\+Rscript.*$" end="^#%end.*$" contains=@R
+" match ocaml command
+syntax region JipCommandOcaml matchgroup=Jip start="^#%begin\s\+command\s\+ocaml.*$" end="^#%end.*$" contains=@OCAML
 
 
 " enbale group highlights
