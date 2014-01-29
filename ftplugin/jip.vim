@@ -48,10 +48,13 @@ unlet b:current_syntax
 syntax include @OCAML syntax/ocaml.vim syntax/ocaml/*.vim
 unlet b:current_syntax
 
+" detect bash function call
+syntax region JipBashBlock matchgroup=JipBashBlock start=/\v.*bash\(\s*\n*\s*'''/ end="'''" contained contains=@SHELL keepend
+syntax region JipBashBlock matchgroup=JipBashBlock start=/\v.*bash\(\s*\n*\s*"""/ end=/"""/ contained contains=@SHELL keepend
 " match general marker
 syntax region JipBlock matchgroup=JipInvalid start="^#%begin.*$" end="^#%end.*$"
 " match python groups
-syntax region JipPipeline matchgroup=Jip start="^#%begin\s\+\(pipeline\|init\|setup\|validate\).*$" end="^#%end.*$" contains=@PYTHON
+syntax region JipPipeline matchgroup=Jip start="^#%begin\s\+\(pipeline\|init\|setup\|validate\).*$" end="^#%end.*$" contains=@PYTHON,JipBashBlock keepend
 " match perl command
 syntax region JipCommandPerl matchgroup=Jip start="^#%begin\s\+command\s\+perl.*$" end="^#%end.*$" contains=@PERL
 " match shell command
