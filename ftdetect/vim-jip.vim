@@ -22,3 +22,4 @@
 " WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 " Load once stuff
 au! BufRead,BufNewFile *.jip set filetype=jip
+au! BufRead,BufNewFile *.spec set filetype=json
